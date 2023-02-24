@@ -3,7 +3,7 @@ dotenv.config();
 // const express = require("express"); for type :"command"
 import express from "express";
 import { MongoClient } from "mongodb";
-import moviesRouter from "./router/movies.js";
+import moviesRouter from "./router/movies.router.js";
 const app = express();
 
 const PORT = process.env.PORT;
