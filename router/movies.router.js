@@ -44,7 +44,7 @@ router.delete("/:id", express.json(), async function (request, response) {
 });
 
 //update movies
-router.put("/movies/:id", express.json(), async function (request, response) {
+router.put("/:id", express.json(), async function (request, response) {
   const { id } = request.params;
   const data = request.body;
   const result = await updateMovie(id, data);
