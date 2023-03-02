@@ -6,6 +6,7 @@ import {
   deleteMovies,
   updateMovie,
 } from "../service/movies.service.js";
+import { auth } from "../middleware/auth.js";
 const router = express.Router();
 
 //get all movies
