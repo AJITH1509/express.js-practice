@@ -28,7 +28,18 @@ router.get("/:id", async function (request, response) {
 //express.json - middleware
 
 router.post("/", express.json(), async function (request, response) {
-  const data = request.body;
+  const { name, poster, rating, summary, trailer } = request.body;
+  const string = await seperateString(trailer);
+  const link = `http://youtube.com/embed/${string}`;
+
+  const data = {
+    name: name,
+    poster: poster,
+    rating: rating,
+    summary: summary,
+    trailer: link,
+  };
+  console.log(data);
   const result = await addMovie(data);
 
   response.send(result);
@@ -51,5 +62,11 @@ router.put("/:id", express.json(), async function (request, response) {
   const result = await updateMovie(id, data);
   response.send(result);
 });
+
+const seperateString = (trailer) => {
+  const result = trailer.split("=")[1];
+
+  return result;
+};
 
 export default router;
