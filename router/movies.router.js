@@ -27,7 +27,7 @@ router.get("/:id", async function (request, response) {
 //add new movies
 //express.json - middleware
 
-router.post("/", express.json(), async function (request, response) {
+router.post("/movies", express.json(), async function (request, response) {
   const { name, poster, rating, summary, trailer } = request.body;
   const string = await seperateString(trailer);
   const link = `https://youtube.com/embed/${string}`;
