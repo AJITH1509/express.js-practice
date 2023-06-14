@@ -30,7 +30,7 @@ router.get("/:id", async function (request, response) {
 router.post("/", express.json(), async function (request, response) {
   const { name, poster, rating, summary, trailer } = request.body;
   const string = await seperateString(trailer);
-  const link = `http://youtube.com/embed/${string}`;
+  const link = `https://youtube.com/embed/${string}`;
 
   const data = {
     name: name,
